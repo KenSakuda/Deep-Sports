@@ -1,0 +1,16 @@
+.list {
+  display: flex;
+  gap: 16px;
+}
+
+.image {
+  height: 75px;
+  width: 100px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.title {
+  font-size: 14px;
+  line-height: 1.4;
+}

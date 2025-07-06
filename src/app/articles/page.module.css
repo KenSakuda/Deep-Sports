@@ -1,0 +1,64 @@
+/* .container {
+  padding: 60px 20px;
+}
+
+.sectionTitle {
+  font-size: 22px;
+  font-weight: bold;
+  color: #333;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 8px;
+  margin-bottom: 20px;
+  align-items: center;
+} */
+
+.contentWrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1350px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  gap: 30px;
+}
+
+.mainContent {
+  flex: 3;
+}
+
+.sidebar {
+  flex: 1;
+  max-width: 370px;
+  min-width: 290px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sectionTitle {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* ====== レスポンシブ対応 ====== */
+@media (max-width: 1024px) {
+  .contentWrapper {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .mainContent,
+  .sidebar {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .sectionTitle {
+    font-size: 20px;
+  }
+}

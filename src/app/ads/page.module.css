@@ -1,0 +1,181 @@
+.main {
+  background: #fff;
+  font-family: "Noto Sans JP", sans-serif;
+  padding-bottom: 60px;
+}
+
+.hero {
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f2f2f2;
+  text-align: center;
+  padding: 0 12px;
+}
+
+.title {
+  font-size: 2.2rem;
+  font-weight: bold;
+  font-family: serif;
+  border-bottom: 2px solid #000;
+  padding-bottom: 8px;
+}
+
+.section {
+  padding: 40px 16px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.mediaWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.imageBox {
+  flex: 1 1 320px;
+  max-width: 500px;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+}
+
+.snsWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.snsItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+}
+
+.mediaDetails {
+  flex: 1 1 500px;
+  max-width: 100%;
+}
+
+.description {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.stats {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 20px;
+}
+
+.statItem {
+  font-size: 1rem;
+}
+
+.statItem strong {
+  font-size: 2rem;
+  display: inline-block;
+  margin: 0 8px;
+  font-family: serif;
+}
+
+.profile {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.downloadLinks {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 24px 0;
+}
+
+.downloadLinks a {
+  display: block;
+  padding: 10px;
+  background: #eee;
+  text-align: center;
+  text-decoration: none;
+  color: #000;
+  font-size: 0.9rem;
+  border-radius: 4px;
+}
+
+.buttonLink {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.icon {
+  font-size: 1rem;
+}
+
+/* ========= レスポンシブ対応 ========= */
+@media (max-width: 768px) {
+  .mediaWrapper {
+    flex-direction: column;
+  }
+
+  .stats {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .downloadLinks {
+    grid-template-columns: 1fr;
+  }
+
+  .imageBox {
+    margin: 0 auto;
+  }
+
+  .title {
+    font-size: 1.6rem;
+  }
+
+  .snsWrapper {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .description {
+    font-size: 0.92rem;
+  }
+
+  .statItem strong {
+    font-size: 1.6rem;
+  }
+
+  .buttonLink {
+    margin-top: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.4rem;
+  }
+
+  .description {
+    font-size: 0.9rem;
+  }
+
+  .snsItem {
+    font-size: 0.8rem;
+  }
+}

@@ -1,0 +1,61 @@
+.contentWrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.mainContent {
+  flex: 3;
+  max-width: 850px;
+  min-width: 650px;
+}
+
+.sidebar {
+  flex: 1;
+  max-width: 370px;
+  min-width: 290px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.meta {
+  font-size: 14px;
+  color: #666;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.mainImage {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.relatedTitle {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 40px;
+}
+
+.button {
+  display: flex;
+  margin-top: 40px;
+  padding-top: 40px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+}

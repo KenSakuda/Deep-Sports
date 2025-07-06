@@ -1,0 +1,120 @@
+.listWrapper {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.list {
+  border-bottom: 1px solid var(--color-border-light);
+  background-color: #fff; /* 各記事に背景色を設定 */
+}
+
+.list:last-child {
+  border-bottom: none;
+}
+
+.link {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  padding: 24px 0;
+}
+
+.image {
+  width: 200px;
+  height: auto;
+  border-radius: var(--border-radius);
+}
+
+.content {
+  flex: 1;
+}
+
+.title {
+  font-size: 1.1rem;
+  color: var(--color-text-main);
+  margin: 0 0 8px 0;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* ==== Large記事スタイル ==== */
+.large {
+  display: block;
+  margin-bottom: 20px;
+}
+
+.large .link {
+  flex-direction: column;
+}
+
+.large .image {
+  width: 100%;
+  height: auto;
+}
+
+.large .title {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.large .meta {
+  margin-top: 8px;
+}
+
+/* ====== レスポンシブ対応 ====== */
+@media (max-width: 1000px) {
+  .link {
+    gap: 20px;
+  }
+
+  .image {
+    width: 150px;
+  }
+
+  .title {
+    font-size: 1rem;
+  }
+
+  .large .title {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .link {
+    display: block;
+    padding: 16px 0;
+  }
+
+  .image {
+    display: none;
+  }
+
+  .title {
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .large .image {
+    display: block;
+  }
+
+  .large .link {
+    display: block;
+  }
+
+  .large .title {
+    font-size: 1.2rem;
+  }
+}

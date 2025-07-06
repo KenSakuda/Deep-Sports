@@ -1,0 +1,103 @@
+.sliderContainer {
+  position: relative;
+  width: 100%;
+  max-width: 950px;
+  height: 500px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.sliderImage {
+  object-fit: cover;
+  object-position: center;
+  max-width: 950px;
+  height: 500px;
+  transition: opacity 1s ease-in-out;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 20px;
+  text-align: center;
+  z-index: 5;
+}
+
+.pickupText {
+  font-size: 14px;
+  font-weight: bold;
+  color: #5bc2dc;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.prevButton,
+.nextButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.sliderContainer:hover .prevButton,
+.sliderContainer:hover .nextButton {
+  opacity: 1;
+}
+
+.prevButton {
+  left: 20px;
+}
+
+.nextButton {
+  right: 20px;
+}
+
+.progressBar {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progressSegment {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.3);
+  height: 100%;
+  margin-right: 3px;
+  transition: background 0.3s ease;
+}
+
+.progressSegment:last-child {
+  margin-right: 0;
+}
+
+.active {
+  background: #5bc2dc;
+}

@@ -1,0 +1,120 @@
+/* .sectionTitle {
+  font-size: 22px;
+  font-weight: bold;
+  color: #333;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 8px;
+  margin-bottom: 20px;
+}
+
+.sectionTitle::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-main);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.sectionTitle::before {
+  content: "";
+  display: block;
+  width: 30px;
+  height: 2px;
+  background-color: var(--color-sub);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+} */
+
+/* ランキング全体のコンテナ */
+.rankingContainer {
+  background: #fff;
+  padding: 5px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ランキングタイトル */
+.sectionTitle {
+  font-size: 22px;
+  font-weight: bold;
+  color: #333;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 8px;
+  margin-bottom: 20px;
+}
+
+.sectionTitle::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-main);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.sectionTitle::before {
+  content: "";
+  display: block;
+  width: 30px;
+  height: 2px;
+  background-color: var(--color-sub);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+/* ランキングリスト */
+.rankingList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* 各ランキングアイテム */
+.rankingItem {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  transition: background 0.3s ease;
+}
+
+.rankingItem:hover {
+  background: rgba(125, 204, 204, 0.4);
+}
+
+/* 順位の番号（まん丸に修正） */
+.rankNumber {
+  font-size: 16px;
+  width: 32px;
+  height: 32px;
+  text-align: center;
+  line-height: 32px;
+  border-radius: 50%;
+  display: inline-block;
+  color: #fff;
+  margin-right: 5px;
+}
+/* 1位のデザイン（ゴールド） */
+.first {
+  background: #ffd700;
+}
+/* 2位のデザイン（シルバー） */
+.second {
+  background: #c0c0c0;
+}
+/* 3位のデザイン（ブロンズ） */
+.third {
+  background: #cd7f32;
+}
+/* 4位以降のデザイン（ネイビー） */
+.other {
+  background: #333;
+}
