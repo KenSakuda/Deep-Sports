@@ -12,23 +12,32 @@
 }
 
 .nav {
-  margin-bottom: 8px;
+  margin-bottom: 16px;
 }
 
-.otherItems {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  margin-bottom: 16px;
-  font-size: 0.9rem;
+.section {
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #ccc;
 }
 
-.snsItems {
+.sectionTitle {
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: #555;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.itemList {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 30px;
-  margin-bottom: 16px;
   font-size: 0.9rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .item a {
@@ -50,4 +59,24 @@
 .copyright {
   font-size: 0.9rem;
   color: var(--color-text-main);
+  margin-top: 16px;
+}
+
+@media (max-width: 768px) {
+  .itemList {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section {
+    padding-bottom: 24px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid #aaa;
+  }
+
+  .sectionTitle {
+    text-align: center;
+    font-size: 14px;
+  }
 }

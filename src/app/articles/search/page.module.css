@@ -2,14 +2,14 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
-  max-width: 1300px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 40px 20px;
 }
 
 .mainContent {
   flex: 3;
-  max-width: 850px;
+  max-width: 750px;
   min-width: 650px;
 }
 
