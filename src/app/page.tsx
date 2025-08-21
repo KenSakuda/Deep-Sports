@@ -237,7 +237,7 @@ import SearchField from "./_components/SearchField";
 import ButtonLink from "./_components/ButtonLink";
 import Predict from "./_components/Predict";
 import ScrollToTop from "./_components/ScrollToTop";
-import Slider from "./_components/Slider";
+// import Slider from "./_components/Slider";
 
 export const revalidate = 60;
 
@@ -253,9 +253,9 @@ export default async function Page({ searchParams }: Props) {
 
   return (
     <Layout>
-      <div className={styles.heroWrap}>
+      {/* <div className={styles.heroWrap}>
         <Slider articles={data.contents} />
-      </div>
+      </div> */}
       <div className={styles.container}>
         <Main className={styles.mainContent}>
           <div className={styles.cards}>

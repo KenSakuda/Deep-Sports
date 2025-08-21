@@ -378,6 +378,7 @@
 }
 
 .container {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -399,13 +400,16 @@
   max-width: 370px;
   width: 100%;
   display: flex;
+  position: sticky;
   flex-direction: column;
   gap: 24px;
+  top: 84px;
+  z-index: 2;
 }
 
 .cards {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3 1fr);
   gap: 24px;
 }
 
