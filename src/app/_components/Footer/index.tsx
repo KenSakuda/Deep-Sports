@@ -1,6 +1,6 @@
 import styles from "./index.module.css";
 import Link from "next/link";
-import { FaXTwitter, FaInstagram, FaYoutube } from "react-icons/fa6";
+// import { FaXTwitter, FaInstagram, FaYoutube } from "react-icons/fa6";
 
 export default function Footer() {
   return (
@@ -27,7 +27,7 @@ export default function Footer() {
           </ul>
         </div>
 
-        <div className={styles.section}>
+        {/* <div className={styles.section}>
           <h4 className={styles.sectionTitle}>FOLLOW US</h4>
           <ul className={styles.itemList}>
             <li className={styles.item}>
@@ -61,7 +61,7 @@ export default function Footer() {
               </Link>
             </li>
           </ul>
-        </div>
+        </div> */}
       </nav>
       <div className={styles.copyright}>
         <p>© 2025 MyStory Inc. All Rights Reserved.</p>
