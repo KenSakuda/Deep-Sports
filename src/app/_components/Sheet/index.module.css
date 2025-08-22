@@ -6,3 +6,20 @@
   padding: 80px;
   border-radius: var(--border-radius);
 }
+
+.sheet {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* 既定: 2カラム */
+  gap: 24px;
+}
+.one {
+  display: block; /* 1カラム */
+}
+@media (max-width: 1024px) {
+  .sheet {
+    grid-template-columns: 1fr; /* タブレット以下は1カラム */
+  }
+}

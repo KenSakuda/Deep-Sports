@@ -89,4 +89,9 @@
   .success {
     text-align: left;
   }
+
+  .horizontal {
+    flex-direction: column;
+    gap: 8px;
+  }
 }
