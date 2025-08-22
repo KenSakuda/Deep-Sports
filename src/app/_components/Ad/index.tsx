@@ -34,5 +34,5 @@ export default function Ad() {
   //     />
   //   );
   // }
-  return <div className={styles.ad}>Ad</div>;
+  return <div className={styles.ad}>広告募集</div>;
 }
