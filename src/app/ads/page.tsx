@@ -52,12 +52,12 @@ export default function AdvertisePage() {
               <div className={styles.stats}>
                 <div className={styles.statItem}>
                   <span>月間PV数</span>
-                  <strong>---</strong>
+                  <span>---</span>
                   <span>万/PV</span>
                 </div>
                 <div className={styles.statItem}>
                   <span>月間UU数</span>
-                  <strong>---</strong>
+                  <span>---</span>
                   <span>万/UU</span>
                 </div>
               </div>

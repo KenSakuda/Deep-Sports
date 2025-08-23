@@ -8,7 +8,7 @@ export default function MangaSubmissionPage() {
       <section className={styles.hero}>
         <h1 className={styles.title}>「スポーツ×データ」 漫画原稿 募集要項</h1>
         <p className={styles.subtitle}>
-          「数字でスポーツを読み解く」新感覚のマンガ作品を募集中。
+          「数字でスポーツを読み解く」新感覚のマンガ作品を募集中
         </p>
       </section>
 
