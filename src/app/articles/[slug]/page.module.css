@@ -5,7 +5,7 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 40px 20px;
-  gap: 30px;
+  gap: 12px;
 }
 
 .mainContent {
@@ -20,13 +20,13 @@
   min-width: 290px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 12px;
 }
 
 .title {
   font-size: 24px;
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .meta {
@@ -35,7 +35,7 @@
   display: flex;
   gap: 10px;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .mainImage {
@@ -44,7 +44,7 @@
   max-width: 600px;
   height: 350px;
   border-radius: 4px;
-  margin: 0 auto 30px auto;
+  margin: 0 auto 20px auto;
 }
 
 .relatedTitle {
