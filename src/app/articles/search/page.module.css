@@ -5,57 +5,53 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 40px 20px;
+  gap: 32px;
+  box-sizing: border-box;
 }
-
 .mainContent {
-  flex: 3;
-  max-width: 750px;
-  min-width: 650px;
+  /* はみ出し防止：min-widthを持たせない＆縮める余地を与える */
+  flex: 1 1 760px;
+  max-width: 780px;
+  width: 100%;
+  min-width: 0; /* ← 子要素の長文でのオーバーフロー抑止に重要 */
 }
-
 .sidebar {
-  flex: 1;
+  flex: 0 1 360px;
   max-width: 370px;
-  min-width: 290px;
+  min-width: 280px;
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
-
 .title {
   font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 20px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #333;
+  border-left: 6px solid var(--color-main);
+  padding-left: 12px;
 }
-
-.meta {
+.resultCount {
   font-size: 14px;
   color: #666;
-  display: flex;
-  gap: 10px;
-  align-items: center;
   margin-bottom: 20px;
 }
-
-.mainImage {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  margin-bottom: 20px;
+/* ====== レスポンシブ ====== */
+@media (max-width: 1024px) {
+  .contentWrapper {
+    flex-direction: column;
+    gap: 28px;
+    padding: 24px 16px;
+  }
+  .mainContent,
+  .sidebar {
+    max-width: 100%;
+    width: 100%;
+    min-width: 0; /* 念のため再指定（切れ防止） */
+  }
 }
-
-.relatedTitle {
-  font-size: 20px;
-  font-weight: bold;
-  margin-top: 40px;
-}
-
-.button {
-  display: flex;
-  margin-top: 40px;
-  padding-top: 40px;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  text-align: center;
+@media (max-width: 600px) {
+  .title {
+    font-size: 20px;
+  }
 }

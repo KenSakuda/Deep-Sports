@@ -20,45 +20,46 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 40px 20px;
-  gap: 30px;
+  gap: 32px;
+  box-sizing: border-box;
 }
-
 .mainContent {
-  flex: 3;
-  max-width: 750px;
-  min-width: 650px;
+  /* ← はみ出しの犯人を除去 */
+  /* min-width: 650px;  削除 */
+  flex: 1 1 760px; /* 推奨幅を持ちつつ縮む */
+  max-width: 780px; /* 右のサイドとバランス */
+  width: 100%;
 }
-
 .sidebar {
-  flex: 1;
+  flex: 0 1 360px;
   max-width: 370px;
-  min-width: 290px;
+  min-width: 280px;
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
-
 .sectionTitle {
   font-size: 24px;
-  font-weight: bold;
+  font-weight: 700;
   margin-bottom: 20px;
   color: #333;
+  border-left: 6px solid var(--color-main);
+  padding-left: 12px;
 }
-
-/* ====== レスポンシブ対応 ====== */
+/* ====== レスポンシブ ====== */
 @media (max-width: 1024px) {
   .contentWrapper {
     flex-direction: column;
-    padding: 20px;
+    padding: 24px 16px;
+    gap: 28px;
   }
-
   .mainContent,
   .sidebar {
     max-width: 100%;
     width: 100%;
+    min-width: 0; /* これが重要：はみ出し抑止 */
   }
 }
-
 @media (max-width: 600px) {
   .sectionTitle {
     font-size: 20px;
