@@ -9,7 +9,7 @@ export default function RecruitBanner() {
       <div className={styles.inner}>
         {/* 左側テキストブロック */}
         <div className={styles.texts}>
-          <span className={styles.kicker}>RECRUIT</span>
+          <div className={styles.info}></div>
           <h3 className={styles.title}>採用情報</h3>
           <p className={styles.desc}>
             Deep Sportsでは、一緒にメディアを作る仲間を募集しています。

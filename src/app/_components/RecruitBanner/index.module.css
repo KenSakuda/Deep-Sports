@@ -21,6 +21,7 @@
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+
 .inner {
   height: 100%;
   display: grid;
@@ -30,10 +31,9 @@
 }
 /* ---- 左側テキスト ---- */
 .texts {
-  display: grid;
-  grid-template-rows: auto auto 1fr auto; /* kicker, title, desc, cta */
-  gap: 8px;
-  padding: 18px 20px 18px 22px;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 20px 0px;
 }
 .kicker {
   display: inline-block;
@@ -59,22 +59,19 @@
   font-size: 13px;
   margin: 6px 0 0;
 }
-/* 水色ボタン（サイトのメインカラー寄せ） */
 .cta {
-  margin-top: 12px;
+  margin-left: auto; /* 右端へ寄せる決め手 */
+  white-space: nowrap; /* ボタン文言の改行を防ぐ */
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  font-size: 14px;
-  font-weight: 800;
-  color: #08363f;
-  background: orange;
-  padding: 10px 16px 11px;
+  justify-content: center;
+  padding: 12px 18px;
   border-radius: 999px;
-  border: 2px solid rgba(255, 255, 255, 0.55);
-  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.08), 0 4px 10px rgba(0, 0, 0, 0.12);
-  transition: transform 0.06s ease, background 0.2s ease, box-shadow 0.2s ease;
-  width: fit-content;
+  background: orange;
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  line-height: 1;
 }
 .chev {
   width: 9px;
@@ -132,11 +129,21 @@
   }
 }
 @media (max-width: 640px) {
+  .wrap {
+    height: auto;
+  }
   .inner {
     grid-template-columns: 1fr; /* モバイルは1カラム */
   }
   .texts {
-    padding: 18px 16px 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .cta {
+    margin-left: 0;
+    width: 100%;
+    justify-content: center;
   }
   .visual {
     display: none;
