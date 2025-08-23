@@ -16,7 +16,7 @@ export default function MangaSubmissionPage() {
         <div className={styles.container}>
           <div className={styles.imageBox}>
             <Image
-              src="/commic-image.png"
+              src="/commic-image.jpg"
               alt="漫画募集イメージ"
               width={600}
               height={400}
