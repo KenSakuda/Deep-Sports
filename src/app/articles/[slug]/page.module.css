@@ -99,23 +99,45 @@
     line-height: 1.35;
   }
 }
+
 @media (max-width: 640px) {
+  /* 外側の余白を無くす（画面端まで） */
   .contentWrapper {
-    padding: 16px 10px;
-  } /* さらに余白を圧縮 */
+    padding-left: 0;
+    padding-right: 0;
+  }
+  /* 固定幅を解除して100%に */
+  .mainContent {
+    max-width: none;
+    min-width: auto;
+    width: 100%;
+    padding: 0; /* ←既存で入っていれば消す */
+  }
+  /* タイトルは左右だけ最小余白（本文と合わせる） */
   .title {
-    font-size: 22px;
-    line-height: 1.4;
-    margin-bottom: 10px;
+    margin: 16px 0 10px;
+    padding: 0 14px;
+    font-size: 22px; /* お好みで */
+    line-height: 1.35;
   }
-  .metaRow {
-    grid-template-columns: 1fr auto;
-    gap: 8px;
+  /* リード・本文（RichEditorの親に .articleBody を当てます） */
+  .articleBody :is(p, h2, h3, h4, ul, ol, blockquote, figure) {
+    padding-left: 14px;
+    padding-right: 14px;
   }
-  .rightMeta {
-    font-size: 12px;
-  }
-  .article {
-    font-size: 15.5px;
+  /* 画像はフルブリード（左右いっぱい） */
+  .mainImage,
+  .articleBody img,
+  .articleBody picture,
+  .articleBody figure {
+    position: relative;
+    left: 50%;
+    right: 50%;
+    width: 100vw;
+    max-width: none;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    height: auto;
+    border-radius: 0; /* 角丸不要なら */
   }
 }
