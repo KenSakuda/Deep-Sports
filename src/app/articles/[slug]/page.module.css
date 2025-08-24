@@ -5,106 +5,117 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 40px 20px;
-  gap: 24px;
-  box-sizing: border-box;
+  gap: 16px;
 }
 .mainContent {
-  /* min-widthを撤廃し、縮められるようにする */
-  flex: 1 1 760px;
-  max-width: 780px;
-  width: 100%;
-  min-width: 0; /* ← 長文やグリッドのはみ出し防止に重要 */
+  flex: 3;
+  max-width: 750px; /* PCは読みやすい幅に */
+  min-width: 0; /* ←はみ出し防止 */
 }
 .sidebar {
-  flex: 0 1 360px;
+  flex: 1;
   max-width: 370px;
-  min-width: 280px;
+  min-width: 290px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px;
 }
 .title {
   font-size: 28px;
-  font-weight: 700;
-  line-height: 1.4;
-  margin-bottom: 12px;
-  color: #111;
+  font-weight: 800;
+  line-height: 1.35;
+  margin: 0 0 12px;
+  letter-spacing: 0.01em;
 }
-.meta {
-  font-size: 14px;
-  color: #666;
-  display: flex;
-  gap: 10px;
+/* タイトル直下：左=カテゴリ / 右=日付 */
+.metaRow {
+  display: grid;
+  grid-template-columns: 1fr auto;
   align-items: center;
-  margin-bottom: 16px;
+  gap: 12px;
+  margin: 0 0 8px;
 }
-/* メイン画像はコンテンツ幅いっぱい。PCは最大幅を設け、SPは100% */
+.leftMeta {
+  min-width: 0;
+}
+.rightMeta {
+  color: #666;
+  font-size: 14px;
+}
+/* タグ */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 10px;
+  margin: 8px 0 18px;
+  padding: 0;
+  list-style: none;
+}
+.tag {
+  font-size: 12px;
+  color: #0aa5c2;
+  background: #eaf7fb;
+  border: 1px solid #cdeef6;
+  border-radius: 16px;
+  padding: 4px 10px;
+}
+/* メイン画像は常にコンテンツ幅いっぱい */
+.hero {
+  margin: 0 0 18px;
+}
 .mainImage {
   display: block;
   width: 100%;
-  max-width: 780px;
   height: auto;
-  border-radius: 4px;
-  margin: 0 auto 24px auto;
+  border-radius: 6px;
 }
-/* 本文：中の画像やiframeも横幅いっぱい＆SPで見やすく */
-.articleBody {
+/* 本文 */
+.article {
   font-size: 16px;
-  line-height: 1.9;
+  line-height: 1.95;
   color: #222;
 }
-/* RichEditorの子要素をグローバル指定で調整 */
-.articleBody :global(img),
-.articleBody :global(video) {
-  max-width: 100%;
-  height: auto;
-}
-.articleBody :global(iframe) {
-  width: 100% !important;
-  max-width: 100% !important;
-  aspect-ratio: 16 / 9;
-  height: auto;
-  display: block;
-}
-.articleBody :global(p) {
-  margin: 1em 0;
-}
+/* 関連 */
 .relatedTitle {
   font-size: 20px;
   font-weight: 700;
-  margin: 40px 0 16px;
+  margin-top: 36px;
 }
 /* ===== レスポンシブ ===== */
 @media (max-width: 1024px) {
   .contentWrapper {
     flex-direction: column;
     align-items: stretch;
-    padding: 24px 16px;
-    gap: 28px;
+    padding: 20px 12px; /* ←左右の余白を最小限に */
   }
   .mainContent,
   .sidebar {
     width: 100%;
     max-width: 100%;
-    min-width: 0; /* 念のため */
+    min-width: auto;
   }
   .title {
     font-size: 24px;
+    line-height: 1.35;
   }
 }
-@media (max-width: 600px) {
+@media (max-width: 640px) {
+  .contentWrapper {
+    padding: 16px 10px;
+  } /* さらに余白を圧縮 */
   .title {
     font-size: 22px;
-    line-height: 1.5;
+    line-height: 1.4;
+    margin-bottom: 10px;
   }
-  .meta {
+  .metaRow {
+    grid-template-columns: 1fr auto;
+    gap: 8px;
+  }
+  .rightMeta {
     font-size: 12px;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 6px;
   }
-  /* スマホは左右の余白を少し詰めて画面いっぱいに近づける */
-  .contentWrapper {
-    padding: 16px 12px;
+  .article {
+    font-size: 15.5px;
   }
 }
