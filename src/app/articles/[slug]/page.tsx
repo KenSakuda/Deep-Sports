@@ -8,16 +8,12 @@ import Ad from "@/app/_components/Ad";
 import Ranking from "@/app/_components/Ranking";
 import Date from "@/app/_components/Date";
 import RichEditor from "@/app/_components/RichEditor";
-// import Pickup from "@/app/_components/Pickup";
 import SearchField from "@/app/_components/SearchField";
-// import Predict from "@/app/_components/Predict";
-// import Stats from "@/app/_components/Stats";
 import Category from "@/app/_components/Category";
 import Cards from "@/app/_components/Cards";
 import ScrollToTop from "@/app/_components/ScrollToTop";
 import styles from "./page.module.css";
 import { notFound } from "next/navigation";
-
 type Props = {
   params: Promise<{
     slug: string;
@@ -26,20 +22,16 @@ type Props = {
     draftKey?: string;
   }>;
 };
-
 export const revalidate = 60;
-
 export async function generateMetadata({
   params,
   searchParams,
 }: Props): Promise<Metadata> {
   const resolvedParams = await params;
   const resolvedSearchParams = await searchParams;
-
   const data = await getArticleDetail(resolvedParams.slug, {
     draftKey: resolvedSearchParams.draftKey,
   });
-
   return {
     title: data.title,
     description: data.description,
@@ -50,11 +42,9 @@ export async function generateMetadata({
     },
   };
 }
-
 export default async function Page({ params, searchParams }: Props) {
   const resolvedParams = await params;
   const resolvedSearchParams = await searchParams;
-
   const data = await getArticleDetail(resolvedParams.slug, {
     draftKey: resolvedSearchParams.draftKey,
   }).catch(notFound);
@@ -68,22 +58,27 @@ export default async function Page({ params, searchParams }: Props) {
             <Date date={data.date} />
             {data.tags}
           </div>
+          {/* メイン画像は常にコンテンツ幅いっぱい（PCは最大幅、SPは100%幅） */}
           <Image
             src={data.thumbnail.url}
             alt=""
             width={data.thumbnail.width}
             height={data.thumbnail.height}
             className={styles.mainImage}
+            priority
           />
-          {data.content.map((item, i) => {
-            if (item.fieldId === "richEditor") {
-              return <RichEditor key={i} content={item.richEditor} />;
-            }
-            if (item.fieldId === "ad" && item.ad) {
-              return <Ad key={i} />;
-            }
-            return null;
-          })}
+          {/* 本文：リッチテキスト中の画像/iframe も100%で表示 */}
+          <article className={styles.articleBody}>
+            {data.content.map((item, i) => {
+              if (item.fieldId === "richEditor") {
+                return <RichEditor key={i} content={item.richEditor} />;
+              }
+              if (item.fieldId === "ad" && item.ad) {
+                return <Ad key={i} />;
+              }
+              return null;
+            })}
+          </article>
           {(data.relatedArticles ?? []).length > 0 && (
             <>
               <h2 className={styles.relatedTitle}>関連記事</h2>
@@ -95,8 +90,6 @@ export default async function Page({ params, searchParams }: Props) {
           <Ad />
           <Ranking />
           <SearchField />
-          {/* <Predict /> */}
-          {/* <Stats /> */}
           <Ad />
         </Sub>
       </div>

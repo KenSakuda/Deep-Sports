@@ -4,7 +4,7 @@ import "./globals.css";
 import Header from "@/app/_components/Header";
 import Menu from "@/app/_components/Menu";
 import Footer from "@/app/_components/Footer";
-// import { GTM } from '@/_components/GTM';
+import { GTM } from "@/app/_components/GTM";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.BASE_URL as string),
@@ -45,8 +45,7 @@ export default function RootLayout({
             crossOrigin="anonymous"
           />
         )} */}
-        {/* {isProduction && <GTM />} */}
-        {isProduction}
+        {isProduction && <GTM />}
         <Header />
         <Menu />
         {children}

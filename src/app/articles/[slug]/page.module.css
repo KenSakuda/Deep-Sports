@@ -5,102 +5,106 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 40px 20px;
-  gap: 12px;
+  gap: 24px;
+  box-sizing: border-box;
 }
-
 .mainContent {
-  flex: 3;
-  max-width: 750px;
-  min-width: 650px;
+  /* min-widthを撤廃し、縮められるようにする */
+  flex: 1 1 760px;
+  max-width: 780px;
+  width: 100%;
+  min-width: 0; /* ← 長文やグリッドのはみ出し防止に重要 */
 }
-
 .sidebar {
-  flex: 1;
+  flex: 0 1 360px;
   max-width: 370px;
-  min-width: 290px;
+  min-width: 280px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 20px;
 }
-
 .title {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 10px;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 12px;
+  color: #111;
 }
-
 .meta {
   font-size: 14px;
   color: #666;
   display: flex;
   gap: 10px;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 16px;
 }
-
+/* メイン画像はコンテンツ幅いっぱい。PCは最大幅を設け、SPは100% */
 .mainImage {
   display: block;
-  width: 75%;
-  max-width: 600px;
-  height: 350px;
+  width: 100%;
+  max-width: 780px;
+  height: auto;
   border-radius: 4px;
-  margin: 0 auto 20px auto;
+  margin: 0 auto 24px auto;
 }
-
+/* 本文：中の画像やiframeも横幅いっぱい＆SPで見やすく */
+.articleBody {
+  font-size: 16px;
+  line-height: 1.9;
+  color: #222;
+}
+/* RichEditorの子要素をグローバル指定で調整 */
+.articleBody :global(img),
+.articleBody :global(video) {
+  max-width: 100%;
+  height: auto;
+}
+.articleBody :global(iframe) {
+  width: 100% !important;
+  max-width: 100% !important;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  display: block;
+}
+.articleBody :global(p) {
+  margin: 1em 0;
+}
 .relatedTitle {
   font-size: 20px;
-  font-weight: bold;
-  margin-top: 40px;
+  font-weight: 700;
+  margin: 40px 0 16px;
 }
-
-.button {
-  display: flex;
-  margin-top: 40px;
-  padding-top: 40px;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  text-align: center;
-}
-
-/* ===== レスポンシブ対応 ===== */
+/* ===== レスポンシブ ===== */
 @media (max-width: 1024px) {
   .contentWrapper {
     flex-direction: column;
     align-items: stretch;
-    padding: 20px;
+    padding: 24px 16px;
+    gap: 28px;
   }
-
   .mainContent,
   .sidebar {
     width: 100%;
     max-width: 100%;
-    min-width: auto;
-    padding: 0 10px;
+    min-width: 0; /* 念のため */
   }
-
-  .mainImage {
-    width: 100%;
-    height: auto;
-    max-width: 100%;
-  }
-
-  .sidebar {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+  .title {
+    font-size: 24px;
   }
 }
-
 @media (max-width: 600px) {
   .title {
-    font-size: 20px;
+    font-size: 22px;
+    line-height: 1.5;
   }
-
   .meta {
     font-size: 12px;
     flex-direction: column;
     align-items: flex-start;
-    gap: 5px;
+    gap: 6px;
+  }
+  /* スマホは左右の余白を少し詰めて画面いっぱいに近づける */
+  .contentWrapper {
+    padding: 16px 12px;
   }
 }
