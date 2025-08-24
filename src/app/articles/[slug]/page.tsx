@@ -10,7 +10,7 @@ import Date from "@/app/_components/Date";
 import RichEditor from "@/app/_components/RichEditor";
 // import Pickup from "@/app/_components/Pickup";
 import SearchField from "@/app/_components/SearchField";
-import Predict from "@/app/_components/Predict";
+// import Predict from "@/app/_components/Predict";
 // import Stats from "@/app/_components/Stats";
 import Category from "@/app/_components/Category";
 import Cards from "@/app/_components/Cards";
@@ -95,7 +95,7 @@ export default async function Page({ params, searchParams }: Props) {
           <Ad />
           <Ranking />
           <SearchField />
-          <Predict />
+          {/* <Predict /> */}
           {/* <Stats /> */}
           <Ad />
         </Sub>

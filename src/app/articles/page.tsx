@@ -31,7 +31,7 @@ import Sub from "@/app/_components/Sub";
 import Ad from "@/app/_components/Ad";
 import Ranking from "@/app/_components/Ranking";
 import SearchField from "@/app/_components/SearchField";
-import Predict from "@/app/_components/Predict";
+// import Predict from "@/app/_components/Predict";
 // import Stats from "@/app/_components/Stats";
 import styles from "./page.module.css";
 import ScrollToTop from "@/app/_components/ScrollToTop";
@@ -54,7 +54,7 @@ export default async function Page() {
           <Ad />
           <Ranking />
           <SearchField />
-          <Predict />
+          {/* <Predict /> */}
           {/* <Stats /> */}
           <Ad />
         </Sub>

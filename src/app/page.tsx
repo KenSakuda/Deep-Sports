@@ -236,7 +236,7 @@ import Cards from "./_components/Cards";
 import Ranking from "./_components/Ranking";
 import SearchField from "./_components/SearchField";
 import ButtonLink from "./_components/ButtonLink";
-import Predict from "./_components/Predict";
+// import Predict from "./_components/Predict";
 import ScrollToTop from "./_components/ScrollToTop";
 
 export const revalidate = 60;
@@ -267,7 +267,7 @@ export default async function Page({ searchParams }: Props) {
           <Ad />
           <Ranking draftKey={resolvedSearchParams.rankingDraftKey} />
           <RecruitBanner />
-          <Predict />
+          {/* <Predict /> */}
           <SearchField />
           <Ad />
         </Sub>
