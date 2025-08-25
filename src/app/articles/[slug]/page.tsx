@@ -103,10 +103,7 @@ export default async function Page({ params, searchParams }: Props) {
                 <Date date={data.date} />
               </div>
             </div>
-            <div>
-              タグ：
-              {Array.isArray(data.tags) && <Tags tags={data.tags} />}
-            </div>
+            <div>{Array.isArray(data.tags) && <Tags tags={data.tags} />}</div>
             <Image
               src={data.thumbnail.url}
               alt=""

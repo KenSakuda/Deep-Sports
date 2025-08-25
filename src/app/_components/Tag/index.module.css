@@ -20,6 +20,22 @@
   border-color: #bfe7f3;
 }
 
+.tag {
+  display: inline-block;
+  font-size: 13px;
+  color: #333;
+  background: #f4f4f4;
+  border-radius: 4px;
+  padding: 4px 8px;
+  margin: 2px 6px 2px 0;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.tag:hover {
+  background: #e0e0e0;
+}
+
 @media (max-width: 640px) {
   .link {
     padding: 6px 10px;

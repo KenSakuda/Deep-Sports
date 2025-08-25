@@ -8,8 +8,8 @@ type Props = {
 
 export default function Tag({ tag }: Props) {
   return (
-    <Link href={`/tag/${tag.id}`} className={styles.link}>
-      {tag.name}
+    <Link href={`/tag/${tag.id}`} className={styles.tag}>
+      #{tag.name}
     </Link>
   );
 }
