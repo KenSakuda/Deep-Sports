@@ -10,11 +10,13 @@ import Date from "@/app/_components/Date";
 import RichEditor from "@/app/_components/RichEditor";
 import SearchField from "@/app/_components/SearchField";
 import Category from "@/app/_components/Category";
+import Tags from "@/app/_components/Tags";
 import Cards from "@/app/_components/Cards";
 import ScrollToTop from "@/app/_components/ScrollToTop";
 import styles from "./page.module.css";
 import { notFound } from "next/navigation";
 import ArticlePagenation from "@/app/_components/ArticlePagenation";
+
 type Props = {
   params: Promise<{
     slug: string;
@@ -24,6 +26,7 @@ type Props = {
     page?: string;
   }>;
 };
+
 export const revalidate = 60;
 // ===== ブロック型定義 =====
 type RichEditorBlock = {
@@ -100,7 +103,11 @@ export default async function Page({ params, searchParams }: Props) {
                 <Date date={data.date} />
               </div>
             </div>
-            <div className={styles.tags}>{data.tags}</div>
+            <div>
+              タグ：
+              {Array.isArray(data.tags) && <Tags tags={data.tags} />}
+            </div>
+            {/* <div className={styles.tags}>{data.tags}</div> */}
             <Image
               src={data.thumbnail.url}
               alt=""

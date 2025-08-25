@@ -2,6 +2,8 @@ import { createClient } from "microcms-js-sdk";
 import type {
   MicroCMSQueries,
   MicroCMSImage,
+  MicroCMSDate,
+  MicroCMSContentId,
   MicroCMSListContent,
 } from "microcms-js-sdk";
 
@@ -9,13 +11,18 @@ export type Category = {
   name: string;
 } & MicroCMSListContent;
 
+export type Tagtype = {
+  name: string;
+} & MicroCMSContentId &
+  MicroCMSDate;
+
 export type Article = {
   title: string;
   thumbnail: MicroCMSImage;
   description?: string;
   category: Category;
   date: string;
-  tags?: string;
+  tags?: Tagtype[];
   content: (RichEditor | Ad)[];
   relatedArticles?: Article[];
 } & MicroCMSListContent;
@@ -98,6 +105,18 @@ export const getCategoryDetail = async (
 ) => {
   const detailData = await client.getListDetail<Category>({
     endpoint: "categories",
+    contentId,
+    queries,
+  });
+  return detailData;
+};
+
+export const getTagDetail = async (
+  contentId: string,
+  queries?: MicroCMSQueries
+) => {
+  const detailData = await client.getListDetail<Category>({
+    endpoint: "tags",
     contentId,
     queries,
   });
