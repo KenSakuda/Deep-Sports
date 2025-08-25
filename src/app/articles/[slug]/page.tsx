@@ -107,7 +107,6 @@ export default async function Page({ params, searchParams }: Props) {
               タグ：
               {Array.isArray(data.tags) && <Tags tags={data.tags} />}
             </div>
-            {/* <div className={styles.tags}>{data.tags}</div> */}
             <Image
               src={data.thumbnail.url}
               alt=""
