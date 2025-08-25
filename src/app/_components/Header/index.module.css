@@ -1,4 +1,4 @@
-.header {
+/* .header {
   display: flex;
   justify-content: center;
   padding: 10px 15%;
@@ -42,5 +42,81 @@
     margin-top: 12px;
     width: 100%;
     justify-content: center;
+  }
+} */
+
+.header {
+  display: flex;
+  justify-content: center;
+  padding: 10px 15%;
+  z-index: 1000;
+  height: 140px;
+  width: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(125, 204, 204, 1),
+    rgba(125, 204, 204, 0.7) 50%,
+    rgba(125, 204, 204, 0.4) 80%
+  );
+  color: black;
+}
+.logoLink {
+  display: flex;
+  align-items: center;
+}
+.logo {
+  height: 75px;
+  width: auto;
+}
+.searchWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  /* PC では元のレイアウトと同じ */
+}
+/* ====== スマホ（≤768px）だけをコンパクト化 ====== */
+@media (max-width: 768px) {
+  .header {
+    /* 縦積みで高さが伸びないよう横並び＋詰める */
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    /* 余白と高さを最小限に */
+    padding: 8px 12px;
+    height: auto; /* 固定高さを解除 */
+    min-height: 56px; /* 指で触りやすい最小高さだけ確保 */
+    /* グラデはそのまま。必要なら少し淡くする場合は下のコメントを解除
+    background: linear-gradient(
+      to bottom,
+      rgba(125, 204, 204, 0.95),
+      rgba(125, 204, 204, 0.65) 50%,
+      rgba(125, 204, 204, 0.35) 80%
+    );
+    */
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+  .logo {
+    /* ロゴを小さくして高さを圧縮 */
+    height: 36px;
+    width: auto;
+  }
+  .logoLink {
+    flex: 0 0 auto;
+  }
+  .searchWrapper {
+    /* 検索は右側で横幅いっぱいに伸ばす */
+    flex: 1 1 auto;
+    min-width: 0;
+    margin-top: 0; /* 既存の上マージンを打ち消し */
+    justify-content: flex-end;
+  }
+  /* 検索フィールド側の幅を素直に広げたい場合は :global で軽く補助 */
+  .searchWrapper :global(form),
+  .searchWrapper :global(.searchField),
+  .searchWrapper :global(input) {
+    width: 100%;
+    max-width: 520px; /* 画面が狭い時は自然に縮む */
   }
 }
