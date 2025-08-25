@@ -15,7 +15,6 @@ import ScrollToTop from "@/app/_components/ScrollToTop";
 import styles from "./page.module.css";
 import { notFound } from "next/navigation";
 import ArticlePagenation from "@/app/_components/ArticlePagenation";
-
 type Props = {
   params: Promise<{
     slug: string;
@@ -25,7 +24,6 @@ type Props = {
     page?: string;
   }>;
 };
-
 export const revalidate = 60;
 // ===== ブロック型定義 =====
 type RichEditorBlock = {
@@ -43,7 +41,6 @@ type UnknownBlock = {
   fieldId: string;
   [key: string]: unknown;
 };
-
 type ContentBlock = RichEditorBlock | AdBlock | PageBreakBlock | UnknownBlock;
 // ===== ページ分割関数 =====
 function splitIntoPages(blocks: ContentBlock[]): ContentBlock[][] {
@@ -92,48 +89,55 @@ export default async function Page({ params, searchParams }: Props) {
     <Layout>
       <div className={styles.contentWrapper}>
         <Main className={styles.mainContent}>
-          <h1 className={styles.title}>{data.title}</h1>
-          <div className={styles.metaRow}>
-            <div className={styles.metaLeft}>
-              {data.category && <Category category={data.category} />}
+          {/* ← スマホ時にだけ中身をフルブリードにするラッパー */}
+          <div className={styles.mobileEdge}>
+            <h1 className={styles.title}>{data.title}</h1>
+            <div className={styles.metaRow}>
+              <div className={styles.metaLeft}>
+                {data.category && <Category category={data.category} />}
+              </div>
+              <div className={styles.metaRight}>
+                <Date date={data.date} />
+              </div>
             </div>
-            <div className={styles.metaRight}>
-              <Date date={data.date} />
-            </div>
-          </div>
-          <div className={styles.tags}>{data.tags}</div>
-          <Image
-            src={data.thumbnail.url}
-            alt=""
-            width={data.thumbnail.width}
-            height={data.thumbnail.height}
-            className={styles.mainImage}
-          />
-          {currentBlocks.map((item: ContentBlock, i: number) => {
-            if (item.fieldId === "richEditor") {
-              const rb = item as RichEditorBlock;
-              return <RichEditor key={i} content={rb.richEditor} />;
-            }
-            if (item.fieldId === "ad") {
-              const ab = item as AdBlock;
-              if (ab.ad) return <Ad key={i} />;
-              return null;
-            }
-            return null;
-          })}
-          {pages.length > 1 && (
-            <ArticlePagenation
-              totalPages={pages.length}
-              currentPage={currentPage}
-              basePath={`/articles/${resolvedParams.slug}`}
+            <div className={styles.tags}>{data.tags}</div>
+            <Image
+              src={data.thumbnail.url}
+              alt=""
+              width={data.thumbnail.width}
+              height={data.thumbnail.height}
+              className={styles.mainImage}
             />
-          )}
-          {(data.relatedArticles ?? []).length > 0 && (
-            <>
-              <h2 className={styles.relatedTitle}>関連記事</h2>
-              <Cards articles={data.relatedArticles ?? []} />
-            </>
-          )}
+            {/* 本文ブロック */}
+            <div className={styles.article}>
+              {currentBlocks.map((item: ContentBlock, i: number) => {
+                if (item.fieldId === "richEditor") {
+                  const rb = item as RichEditorBlock;
+                  return <RichEditor key={i} content={rb.richEditor} />;
+                }
+                if (item.fieldId === "ad") {
+                  const ab = item as AdBlock;
+                  if (ab.ad) return <Ad key={i} />;
+                  return null;
+                }
+                return null;
+              })}
+            </div>
+            {/* ページネーション（ブロック分割時のみ） */}
+            {pages.length > 1 && (
+              <ArticlePagenation
+                totalPages={pages.length}
+                currentPage={currentPage}
+                basePath={`/articles/${resolvedParams.slug}`}
+              />
+            )}
+            {(data.relatedArticles ?? []).length > 0 && (
+              <>
+                <h2 className={styles.relatedTitle}>関連記事</h2>
+                <Cards articles={data.relatedArticles ?? []} />
+              </>
+            )}
+          </div>
         </Main>
         <Sub className={styles.sidebar}>
           <Ad />

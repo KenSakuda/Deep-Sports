@@ -10,7 +10,7 @@
 .mainContent {
   flex: 3;
   max-width: 750px; /* PCは読みやすい幅に */
-  min-width: 0; /* ←はみ出し防止 */
+  min-width: 0; /* はみ出し防止 */
 }
 .sidebar {
   flex: 1;
@@ -20,6 +20,7 @@
   flex-direction: column;
   gap: 16px;
 }
+/* ===== 記事ヘッダ ===== */
 .title {
   font-size: 28px;
   font-weight: 800;
@@ -27,18 +28,17 @@
   margin: 0 0 12px;
   letter-spacing: 0.01em;
 }
-/* タイトル直下：左=カテゴリ / 右=日付 */
 .metaRow {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: 1fr auto; /* 左=カテゴリ / 右=日付 */
   align-items: center;
   gap: 12px;
   margin: 0 0 8px;
 }
-.leftMeta {
+.metaLeft {
   min-width: 0;
 }
-.rightMeta {
+.metaRight {
   color: #666;
   font-size: 14px;
 }
@@ -59,17 +59,15 @@
   border-radius: 16px;
   padding: 4px 10px;
 }
-/* メイン画像は常にコンテンツ幅いっぱい */
-.hero {
-  margin: 0 0 18px;
-}
+/* メイン画像：常にコンテンツ幅いっぱい */
 .mainImage {
   display: block;
   width: 100%;
   height: auto;
   border-radius: 6px;
+  margin: 0 0 18px;
 }
-/* 本文 */
+/* 本文のベース */
 .article {
   font-size: 16px;
   line-height: 1.95;
@@ -81,12 +79,12 @@
   font-weight: 700;
   margin-top: 36px;
 }
-/* ===== レスポンシブ ===== */
+/* ============ レスポンシブ（PCは一切変更しない） ============ */
 @media (max-width: 1024px) {
   .contentWrapper {
     flex-direction: column;
     align-items: stretch;
-    padding: 20px 12px; /* ←左右の余白を最小限に */
+    padding: 20px 12px; /* スマホ〜タブレット：左右余白を縮小 */
   }
   .mainContent,
   .sidebar {
@@ -99,10 +97,19 @@
     line-height: 1.35;
   }
 }
+/* スマホ最適化（左右の余白を“最小限”にして読みやすく） */
 @media (max-width: 640px) {
   .contentWrapper {
     padding: 16px 10px;
-  } /* さらに余白を圧縮 */
+  }
+  /* ★ フルブリード・ラッパー：内部の余白だけを最小限に残す
+     端末ノッチに配慮しつつ左右10〜12px程度まで寄せます */
+  .mobileEdge {
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    padding-left: max(12px, env(safe-area-inset-left));
+    padding-right: max(12px, env(safe-area-inset-right));
+  }
   .title {
     font-size: 22px;
     line-height: 1.4;
@@ -112,10 +119,30 @@
     grid-template-columns: 1fr auto;
     gap: 8px;
   }
-  .rightMeta {
+  .metaRight {
     font-size: 12px;
   }
   .article {
     font-size: 15.5px;
+    line-height: 1.9;
+  }
+  /* RichEditor 内の段落/見出しもやや詰める */
+  .mobileEdge :global(p) {
+    margin: 0 0 1.1em;
+  }
+  .mobileEdge :global(h2) {
+    font-size: 1.25rem;
+    margin: 1.6em 0 0.7em;
+    line-height: 1.35;
+  }
+  .mobileEdge :global(h3) {
+    font-size: 1.1rem;
+    margin: 1.4em 0 0.6em;
+    line-height: 1.35;
+  }
+  .mobileEdge :global(ul),
+  .mobileEdge :global(ol) {
+    padding-left: 1.25em;
+    margin: 0 0 1.1em;
   }
 }
