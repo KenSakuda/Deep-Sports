@@ -7,10 +7,11 @@ type Props = {
 };
 
 export default function Tags({ tags }: Props) {
+  if (!tags?.length) return null;
   return (
     <ul className={styles.tags}>
       {tags.map((tag) => (
-        <li key={tag.id}>
+        <li key={tag.id} className={styles.item}>
           <Tag tag={tag} />
         </li>
       ))}

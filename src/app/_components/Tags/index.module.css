@@ -1,4 +1,19 @@
 .tags {
-  display: inline-flex;
-  gap: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 10px;
+  margin: 8px 0 16px;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  /* li 自体は特に装飾しないが、余白計算のために分離 */
+}
+
+@media (max-width: 640px) {
+  .tags {
+    gap: 6px 8px;
+    margin: 6px 0 12px;
+  }
 }

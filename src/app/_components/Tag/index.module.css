@@ -1,0 +1,28 @@
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  font-size: 12px;
+  line-height: 1;
+  color: #0aa5c2;
+  text-decoration: none;
+  background: #eaf7fb;
+  border: 1px solid #cdeef6;
+  border-radius: 999px;
+  white-space: nowrap;
+  word-break: keep-all;
+  letter-spacing: 0;
+}
+
+.link:hover {
+  background: #dff3f9;
+  border-color: #bfe7f3;
+}
+
+@media (max-width: 640px) {
+  .link {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+}
