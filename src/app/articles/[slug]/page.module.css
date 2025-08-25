@@ -72,6 +72,7 @@
   font-size: 16px;
   line-height: 1.95;
   color: #222;
+  width: 100%;
 }
 /* 関連 */
 .relatedTitle {
@@ -79,7 +80,7 @@
   font-weight: 700;
   margin-top: 36px;
 }
-/* ============ レスポンシブ（PCは一切変更しない） ============ */
+
 @media (max-width: 1024px) {
   .contentWrapper {
     flex-direction: column;
