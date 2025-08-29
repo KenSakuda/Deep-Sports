@@ -572,5 +572,6 @@
   }
   .buttonLink {
     margin-top: 16px;
+    max-width: 80%;
   }
 }

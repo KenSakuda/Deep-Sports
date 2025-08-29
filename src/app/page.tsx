@@ -292,12 +292,15 @@ import SearchField from "./_components/SearchField";
 import ButtonLink from "./_components/ButtonLink";
 // import Predict from "./_components/Predict";
 import ScrollToTop from "./_components/ScrollToTop";
+
 export const revalidate = 60;
+
 type Props = {
   searchParams: Promise<{
     rankingDraftKey?: string;
   }>;
 };
+
 export default async function Page({ searchParams }: Props) {
   const resolvedSearchParams = await searchParams;
   const data = await getArticleList({ limit: TOP_ARTICLE_LIST_LIMIT });
@@ -318,6 +321,7 @@ export default async function Page({ searchParams }: Props) {
           <RecruitBanner />
           {/* <Predict /> */}
           <SearchField />
+          <RecruitBanner />
           <Ad />
         </Sub>
       </div>

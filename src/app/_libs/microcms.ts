@@ -45,6 +45,19 @@ export type Pickup = {
   articles: Article[];
 } & MicroCMSListContent;
 
+export type GlossaryChat = {
+  role: "editor" | "beginner";
+  text: string;
+  speakerName?: string;
+  icon?: MicroCMSImage;
+};
+
+export type Glossary = {
+  title: string;
+  description?: string;
+  chat: GlossaryChat[];
+} & MicroCMSListContent;
+
 if (!process.env.MICROCMS_SERVICE_DOMAIN) {
   throw new Error("MICROCMS_SERVICE_DOMAIN is required");
 }
@@ -135,4 +148,21 @@ export const getAllCategoryList = async () => {
     endpoint: "categories",
   });
   return listData;
+};
+
+export const getGlossaryDetail = async (
+  contentId: string,
+  queries?: MicroCMSQueries
+) => {
+  const detailData = await client.getListDetail<Glossary>({
+    endpoint: "glossary",
+    contentId,
+    queries,
+    customRequestInit: {
+      next: {
+        revalidate: queries?.draftKey === undefined ? 60 : 0,
+      },
+    },
+  });
+  return detailData;
 };

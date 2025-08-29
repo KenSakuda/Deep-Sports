@@ -32,7 +32,7 @@ export default function Footer() {
           <ul className={styles.itemList}>
             <li className={styles.item}>
               <Link
-                href="https://twitter.com"
+                href="https://x.com/DeepSports_jp"
                 target="_blank"
                 rel="noopener noreferrer"
               >
