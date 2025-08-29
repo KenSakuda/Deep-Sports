@@ -1,6 +1,6 @@
 import styles from "./index.module.css";
 import Link from "next/link";
-// import { FaXTwitter, FaInstagram, FaYoutube } from "react-icons/fa6";
+import { FaXTwitter, FaInstagram } from "react-icons/fa6"; //FaYoutube
 
 export default function Footer() {
   return (
@@ -27,7 +27,7 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* <div className={styles.section}>
+        <div className={styles.section}>
           <h4 className={styles.sectionTitle}>FOLLOW US</h4>
           <ul className={styles.itemList}>
             <li className={styles.item}>
@@ -42,7 +42,7 @@ export default function Footer() {
             </li>
             <li className={styles.item}>
               <Link
-                href="https://instagram.com"
+                href="https://www.instagram.com/deepsports_official"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -50,7 +50,7 @@ export default function Footer() {
                 <span>Instagram</span>
               </Link>
             </li>
-            <li className={styles.item}>
+            {/* <li className={styles.item}>
               <Link
                 href="https://youtube.com"
                 target="_blank"
@@ -59,9 +59,9 @@ export default function Footer() {
                 <FaYoutube className={styles.icon} />
                 <span>YouTube</span>
               </Link>
-            </li>
+            </li> */}
           </ul>
-        </div> */}
+        </div>
       </nav>
       <div className={styles.copyright}>
         <p>© 2025 MyStory Inc. All Rights Reserved.</p>
