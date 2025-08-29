@@ -284,6 +284,7 @@ import Main from "./_components/Main";
 import Sub from "./_components/Sub";
 import Ad from "./_components/Ad";
 import RecruitBanner from "./_components/RecruitBanner";
+import GlossaryBanner from "./_components/GlossaryBanner";
 import { TOP_ARTICLE_LIST_LIMIT } from "@/app/_constants";
 import { getArticleList } from "@/app/_libs/microcms";
 import Cards from "./_components/Cards";
@@ -318,7 +319,7 @@ export default async function Page({ searchParams }: Props) {
         <Sub className={styles.sidebar}>
           <Ad />
           <Ranking draftKey={resolvedSearchParams.rankingDraftKey} />
-          <RecruitBanner />
+          <GlossaryBanner />
           {/* <Predict /> */}
           <SearchField />
           <RecruitBanner />

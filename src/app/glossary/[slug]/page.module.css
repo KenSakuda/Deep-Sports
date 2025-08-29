@@ -5,7 +5,7 @@
   --gls-muted: #666;
   --gls-paper: #fff;
   --gls-border: #e5e7eb;
-  --gls-bubble-offset: 0px -100px;
+  --gls-bubble-offset: 0px -90px;
 } /* ====== 記事ページ準拠の2カラム ====== */
 .contentWrapper {
   display: flex;
@@ -32,8 +32,8 @@
 .hero {
   background: radial-gradient(
         1200px 200px at 50% -60px,
-        #f4f6fb 0%,
-        #f4f6fb 60%,
+        rgba(125, 204, 204, 1) 0%,
+        rgba(125, 204, 204, 1) 40%,
         transparent 61%
       )
       top/100% 220px no-repeat,
@@ -44,11 +44,11 @@
   margin-bottom: 10px;
 }
 .kicker {
-  color: var(--gls-brand);
-  letter-spacing: 0.2em;
+  color: var(--gls-paper);
+  letter-spacing: 0.6em;
   font-weight: 700;
-  font-size: 12px;
-  margin: 0 0 6px;
+  font-size: 18px;
+  margin: -12px 0 4px;
 }
 .title {
   font-size: 28px;
@@ -64,19 +64,15 @@
   margin: 0;
 } /* ===== チャット本体 ===== */
 .section {
-  padding: 12px 0 8px;
+  padding: 16px 0 2px;
 }
 .chatList {
   list-style: none;
-  margin: 16px 0 0;
-  padding: 0;
   display: grid;
-  gap: 16px;
 }
 .row {
   display: grid;
   grid-template-columns: 72px minmax(0, 1fr);
-  gap: 12px;
   align-items: start;
 } /* 左右レイアウト（既存のまま＋セル個別に上揃え） */
 .left .avatarWrap {
@@ -147,12 +143,12 @@
   position: relative;
   border-radius: 8px;
   padding: 12px 14px;
-  max-width: 620px; /* 伸びすぎ防止（好みで調整OK） */
+  max-width: 680px; /* 伸びすぎ防止（好みで調整OK） */
   width: 100%;
   background: var(--gls-paper);
   border: 1px solid var(--gls-border);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
-  margin-inline: 8px; /* 端に密着させない */
+  margin-inline: 4px; /* 端に密着させない */
 } /* テキスト：プレーンテキスト前提。改行コードを <br> として表示 */
 .text {
   margin: 0;
@@ -224,6 +220,7 @@
   .bubble {
     padding: 10px 12px;
     border-radius: 8px;
+    max-width: 620px;
   }
   .text {
     font-size: 15.5px;
