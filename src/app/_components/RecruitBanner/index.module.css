@@ -142,8 +142,7 @@
   }
   .cta {
     margin-left: 0;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin: 10px auto;
     width: 70%;
     justify-content: center;
   }

@@ -1,4 +1,3 @@
-/* このページ専用の変数（衝突回避） */
 .theme {
   --gls-brand: #ff8c00;
   --gls-blue: #0a3a8a;
@@ -7,9 +6,7 @@
   --gls-paper: #fff;
   --gls-border: #e5e7eb;
   --gls-bubble-offset: 0px -100px;
-}
-
-/* ====== 記事ページ準拠の2カラム ====== */
+} /* ====== 記事ページ準拠の2カラム ====== */
 .contentWrapper {
   display: flex;
   justify-content: space-between;
@@ -31,9 +28,7 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-}
-
-/* ===== Hero ===== */
+} /* ===== Hero ===== */
 .hero {
   background: radial-gradient(
         1200px 200px at 50% -60px,
@@ -52,7 +47,7 @@
   color: var(--gls-brand);
   letter-spacing: 0.2em;
   font-weight: 700;
-  font-size: 18px;
+  font-size: 12px;
   margin: 0 0 6px;
 }
 .title {
@@ -67,13 +62,10 @@
   color: var(--gls-muted);
   font-size: 14px;
   margin: 0;
-}
-
-/* ===== チャット本体 ===== */
+} /* ===== チャット本体 ===== */
 .section {
   padding: 12px 0 8px;
 }
-
 .chatList {
   list-style: none;
   margin: 16px 0 0;
@@ -81,15 +73,12 @@
   display: grid;
   gap: 16px;
 }
-
 .row {
   display: grid;
   grid-template-columns: 72px minmax(0, 1fr);
   gap: 12px;
   align-items: start;
-}
-
-/* 左右レイアウト（既存のまま＋セル個別に上揃え） */
+} /* 左右レイアウト（既存のまま＋セル個別に上揃え） */
 .left .avatarWrap {
   grid-column: 1;
   align-self: start;
@@ -99,7 +88,6 @@
   justify-self: start;
   align-self: start;
 }
-
 .right {
   grid-template-columns: minmax(0, 1fr) 72px;
   align-items: start; /* 念のため右側も */
@@ -112,14 +100,10 @@
   grid-column: 1;
   justify-self: end;
   align-self: start;
-}
-
-/* 吹き出し本体を少しだけ上に寄せる（フォント差吸収） */
+} /* 吹き出し本体を少しだけ上に寄せる（フォント差吸収） */
 .bubble {
   translate: var(--gls-bubble-offset);
-}
-
-/* アバター */
+} /* アバター */
 .avatarWrap {
   display: grid;
   justify-items: center;
@@ -158,9 +142,7 @@
 }
 .right .speaker {
   color: var(--gls-brand);
-}
-
-/* 吹き出し：白背景（左右どちらも同一デザイン） */
+} /* 吹き出し：白背景（左右どちらも同一デザイン） */
 .bubble {
   position: relative;
   border-radius: 8px;
@@ -171,9 +153,7 @@
   border: 1px solid var(--gls-border);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
   margin-inline: 8px; /* 端に密着させない */
-}
-
-/* テキスト：プレーンテキスト前提。改行コードを <br> として表示 */
+} /* テキスト：プレーンテキスト前提。改行コードを <br> として表示 */
 .text {
   margin: 0;
   font-size: 16px;
@@ -181,9 +161,7 @@
   color: var(--gls-ink);
   white-space: pre-line; /* ← 改行コード(\n)を改行として表示 */
   overflow-wrap: anywhere;
-}
-
-/* 吹き出しのしっぽ（白） */
+} /* 吹き出しのしっぽ（白） */
 .left .bubble::after,
 .right .bubble::after {
   content: "";
@@ -202,9 +180,7 @@
   right: -8px;
   border-left-color: var(--gls-paper);
   border-right: 0;
-}
-
-/* ===== レスポンシブ（記事ページ準拠） ===== */
+} /* ===== レスポンシブ（記事ページ準拠） ===== */
 @media (max-width: 1024px) {
   .contentWrapper {
     flex-direction: column;
@@ -222,7 +198,6 @@
     line-height: 1.35;
   }
 }
-
 @media (max-width: 640px) {
   .contentWrapper {
     padding: 16px 10px;

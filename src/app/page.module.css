@@ -516,7 +516,7 @@
   .container {
     max-width: none;
     width: 100vw;
-    margin: 20px 0 0 0;
+    margin: 16px 0 0 0;
     padding: 0;
     flex-direction: column;
     gap: 12px;
@@ -571,7 +571,7 @@
     padding: 12px 14px 16px;
   }
   .buttonLink {
-    margin-top: 16px;
     max-width: 80%;
+    margin: 16px auto;
   }
 }
