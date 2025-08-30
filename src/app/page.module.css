@@ -535,11 +535,6 @@
     width: 100vw; /* 幅いっぱいに */
     box-sizing: border-box;
   }
-  .sidebar > * {
-    margin: 0 auto 16px;
-    max-width: 100%;
-    width: 100%;
-  }
 
   /* 記事カード：1カラム + 区切り線で“ニュースサイト感” */
   .cards {
