@@ -528,9 +528,19 @@
     padding: 0;
   }
   .sidebar {
-    position: static; /* sticky解除でズレ防止 */
-    top: auto;
+    padding-left: max(12px, env(safe-area-inset-left));
+    padding-right: max(12px, env(safe-area-inset-right));
+    margin-left: calc(50% - 50vw); /* 画面端まで寄せる */
+    margin-right: calc(50% - 50vw);
+    width: 100vw; /* 幅いっぱいに */
+    box-sizing: border-box;
   }
+  .sidebar > * {
+    margin: 0 auto 16px;
+    max-width: 100%;
+    width: 100%;
+  }
+
   /* 記事カード：1カラム + 区切り線で“ニュースサイト感” */
   .cards {
     grid-template-columns: 1fr !important; /* スマホは1列固定 */

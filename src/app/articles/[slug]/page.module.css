@@ -9,8 +9,8 @@
 }
 .mainContent {
   flex: 3;
-  max-width: 750px; /* PCは読みやすい幅に */
-  min-width: 0; /* はみ出し防止 */
+  max-width: 750px; /* PCは読みやすい幅 */
+  min-width: 0;
 }
 .sidebar {
   flex: 1;
@@ -20,7 +20,7 @@
   flex-direction: column;
   gap: 16px;
 }
-/* ===== 記事ヘッダ ===== */
+/* ===== 記事ヘッダ（PC共通） ===== */
 .title {
   font-size: 28px;
   font-weight: 800;
@@ -30,7 +30,7 @@
 }
 .metaRow {
   display: grid;
-  grid-template-columns: 1fr auto; /* 左=カテゴリ / 右=日付 */
+  grid-template-columns: 1fr auto;
   align-items: center;
   gap: 12px;
   margin: 0 0 8px;
@@ -42,24 +42,11 @@
   color: #666;
   font-size: 14px;
 }
-/* タグ */
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 10px;
+/* タグ（Tags コンポーネント側の見た目に委ねる。ここは間の余白だけ） */
+.mobileEdge :global(ul.tags) {
   margin: 8px 0 18px;
-  padding: 0;
-  list-style: none;
 }
-.tag {
-  font-size: 12px;
-  color: #0aa5c2;
-  background: #eaf7fb;
-  border: 1px solid #cdeef6;
-  border-radius: 16px;
-  padding: 4px 10px;
-}
-/* メイン画像：常にコンテンツ幅いっぱい */
+/* 画像（PCは従来通り） */
 .mainImage {
   display: block;
   width: 100%;
@@ -67,25 +54,24 @@
   border-radius: 6px;
   margin: 0 0 18px;
 }
-/* 本文のベース */
+/* 本文ベース */
 .article {
   font-size: 16px;
   line-height: 1.95;
   color: #222;
   width: 100%;
 }
-/* 関連 */
 .relatedTitle {
   font-size: 20px;
   font-weight: 700;
   margin-top: 36px;
 }
-
+/* ===== タブレット（PCデザインは維持） ===== */
 @media (max-width: 1024px) {
   .contentWrapper {
     flex-direction: column;
     align-items: stretch;
-    padding: 20px 12px; /* スマホ〜タブレット：左右余白を縮小 */
+    padding: 20px 12px; /* 少し狭める */
   }
   .mainContent,
   .sidebar {
@@ -98,13 +84,17 @@
     line-height: 1.35;
   }
 }
-/* スマホ最適化（左右の余白を“最小限”にして読みやすく） */
+/* ===== スマホだけ“画面端まで”寄せる ===== */
 @media (max-width: 640px) {
+  /* 親の左右パディングを0にして、真に端まで使えるようにする */
   .contentWrapper {
-    padding: 16px 10px;
+    padding-left: 0;
+    padding-right: 0;
   }
-  /* ★ フルブリード・ラッパー：内部の余白だけを最小限に残す
-     端末ノッチに配慮しつつ左右10〜12px程度まで寄せます */
+  /* 本文のラッパーをフルブリード化
+親の中央揃えを打ち消すため左右を viewport まで広げる
+端末のセーフエリアも考慮
+  */
   .mobileEdge {
     margin-left: calc(50% - 50vw);
     margin-right: calc(50% - 50vw);
@@ -123,11 +113,11 @@
   .metaRight {
     font-size: 12px;
   }
-  .article {
-    font-size: 15.5px;
-    line-height: 1.9;
+  /* 画像は角丸を外して“面いっぱい”に */
+  .mainImage {
+    border-radius: 0;
   }
-  /* RichEditor 内の段落/見出しもやや詰める */
+  /* RichEditor 内の余白を少しタイトに */
   .mobileEdge :global(p) {
     margin: 0 0 1.1em;
   }

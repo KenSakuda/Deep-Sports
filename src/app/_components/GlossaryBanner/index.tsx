@@ -11,9 +11,9 @@ export default function GlossaryBanner() {
         <div className={styles.visual} aria-hidden="true">
           <span className={styles.ribbon} />
           <div className={styles.tabs} aria-hidden="true">
-            <span>A</span>
-            <span>B</span>
-            <span>C</span>
+            <span>統計学</span>
+            <span>経済学</span>
+            <span>アナリティクス指標</span>
           </div>
           <span className={styles.glyph} aria-hidden="true">
             Aa

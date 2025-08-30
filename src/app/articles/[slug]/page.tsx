@@ -16,47 +16,29 @@ import ScrollToTop from "@/app/_components/ScrollToTop";
 import styles from "./page.module.css";
 import { notFound } from "next/navigation";
 import ArticlePagenation from "@/app/_components/ArticlePagenation";
-
+import type { Tagtype } from "@/app/_libs/microcms";
 type Props = {
-  params: Promise<{
-    slug: string;
-  }>;
-  searchParams: Promise<{
-    draftKey?: string;
-    page?: string;
-  }>;
+  params: Promise<{ slug: string }>;
+  searchParams: Promise<{ draftKey?: string; page?: string }>;
 };
-
 export const revalidate = 60;
-// ===== ブロック型定義 =====
-type RichEditorBlock = {
-  fieldId: "richEditor";
-  richEditor: string;
-};
-type AdBlock = {
-  fieldId: "ad";
-  ad?: boolean;
-};
-type PageBreakBlock = {
-  fieldId: "pageBreak";
-};
-type UnknownBlock = {
-  fieldId: string;
-  [key: string]: unknown;
-};
+// ブロック定義
+type RichEditorBlock = { fieldId: "richEditor"; richEditor: string };
+type AdBlock = { fieldId: "ad"; ad?: boolean };
+type PageBreakBlock = { fieldId: "pageBreak" };
+type UnknownBlock = { fieldId: string; [k: string]: unknown };
 type ContentBlock = RichEditorBlock | AdBlock | PageBreakBlock | UnknownBlock;
-// ===== ページ分割関数 =====
+// ページ分割
 function splitIntoPages(blocks: ContentBlock[]): ContentBlock[][] {
   const pages: ContentBlock[][] = [[]];
-  let idx = 0;
+  let i = 0;
   for (const b of blocks ?? []) {
     if (b.fieldId === "pageBreak") {
-      if (pages[idx].length === 0) continue;
-      idx++;
-      pages[idx] = [];
+      if (pages[i].length) i++;
+      pages[i] = pages[i] ?? [];
       continue;
     }
-    pages[idx].push(b);
+    pages[i].push(b);
   }
   return pages.length ? pages : [[]];
 }
@@ -64,11 +46,9 @@ export async function generateMetadata({
   params,
   searchParams,
 }: Props): Promise<Metadata> {
-  const resolvedParams = await params;
-  const resolvedSearchParams = await searchParams;
-  const data = await getArticleDetail(resolvedParams.slug, {
-    draftKey: resolvedSearchParams.draftKey,
-  });
+  const { slug } = await params;
+  const { draftKey } = await searchParams;
+  const data = await getArticleDetail(slug, { draftKey });
   return {
     title: data.title,
     description: data.description,
@@ -80,19 +60,17 @@ export async function generateMetadata({
   };
 }
 export default async function Page({ params, searchParams }: Props) {
-  const resolvedParams = await params;
-  const resolvedSearchParams = await searchParams;
-  const data = await getArticleDetail(resolvedParams.slug, {
-    draftKey: resolvedSearchParams.draftKey,
-  }).catch(notFound);
-  const currentPage = parseInt(resolvedSearchParams.page ?? "1", 10);
+  const { slug } = await params;
+  const { draftKey, page } = await searchParams;
+  const data = await getArticleDetail(slug, { draftKey }).catch(notFound);
+  const currentPage = parseInt(page ?? "1", 10);
   const pages = splitIntoPages(data.content as ContentBlock[]);
   const currentBlocks = pages[currentPage - 1] ?? [];
   return (
     <Layout>
       <div className={styles.contentWrapper}>
         <Main className={styles.mainContent}>
-          {/* ← スマホ時にだけ中身をフルブリードにするラッパー */}
+          {/* ▼ スマホ時のみ“画面端まで”寄せるラッパー */}
           <div className={styles.mobileEdge}>
             <h1 className={styles.title}>{data.title}</h1>
             <div className={styles.metaRow}>
@@ -103,7 +81,7 @@ export default async function Page({ params, searchParams }: Props) {
                 <Date date={data.date} />
               </div>
             </div>
-            <div>{Array.isArray(data.tags) && <Tags tags={data.tags} />}</div>
+            {Array.isArray(data.tags) && <Tags tags={data.tags as Tagtype[]} />}
             <Image
               src={data.thumbnail.url}
               alt=""
@@ -111,27 +89,25 @@ export default async function Page({ params, searchParams }: Props) {
               height={data.thumbnail.height}
               className={styles.mainImage}
             />
-            {/* 本文ブロック */}
             <div className={styles.article}>
-              {currentBlocks.map((item: ContentBlock, i: number) => {
-                if (item.fieldId === "richEditor") {
-                  const rb = item as RichEditorBlock;
-                  return <RichEditor key={i} content={rb.richEditor} />;
-                }
-                if (item.fieldId === "ad") {
-                  const ab = item as AdBlock;
-                  if (ab.ad) return <Ad key={i} />;
-                  return null;
-                }
+              {currentBlocks.map((b, i) => {
+                if (b.fieldId === "richEditor")
+                  return (
+                    <RichEditor
+                      key={i}
+                      content={(b as RichEditorBlock).richEditor}
+                    />
+                  );
+                if (b.fieldId === "ad" && (b as AdBlock).ad)
+                  return <Ad key={i} />;
                 return null;
               })}
             </div>
-            {/* ページネーション（ブロック分割時のみ） */}
             {pages.length > 1 && (
               <ArticlePagenation
                 totalPages={pages.length}
                 currentPage={currentPage}
-                basePath={`/articles/${resolvedParams.slug}`}
+                basePath={`/articles/${slug}`}
               />
             )}
             {(data.relatedArticles ?? []).length > 0 && (
