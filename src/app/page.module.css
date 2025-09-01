@@ -519,14 +519,14 @@
     margin: 16px 0 0 0;
     padding: 0;
     flex-direction: column;
-    gap: 12px;
+    gap: 6px;
   }
-  .mainContent,
-  .sidebar {
+  .mainContent {
     max-width: 100%;
     width: 100%;
     padding: 0;
   }
+
   .sidebar {
     padding-left: max(12px, env(safe-area-inset-left));
     padding-right: max(12px, env(safe-area-inset-right));
