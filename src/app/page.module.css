@@ -528,6 +528,7 @@
   }
 
   .sidebar {
+    max-width: none;
     padding-left: max(12px, env(safe-area-inset-left));
     padding-right: max(12px, env(safe-area-inset-right));
     margin-left: calc(50% - 50vw); /* 画面端まで寄せる */
