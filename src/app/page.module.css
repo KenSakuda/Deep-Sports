@@ -533,7 +533,7 @@
     padding-right: max(6px, env(safe-area-inset-right));
     margin-left: calc(50% - 50vw);
     margin-right: calc(50% - 50vw);
-    width: 100vw; /* 幅いっぱいに */
+    width: 768px; /* 幅いっぱいに */
     box-sizing: border-box;
   }
 
