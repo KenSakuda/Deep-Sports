@@ -529,10 +529,10 @@
 
   .sidebar {
     max-width: none;
-    padding-left: max(12px, env(safe-area-inset-left));
+    /* padding-left: max(12px, env(safe-area-inset-left));
     padding-right: max(12px, env(safe-area-inset-right));
-    margin-left: calc(50% - 50vw); /* 画面端まで寄せる */
-    margin-right: calc(50% - 50vw);
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw); */
     width: 100vw; /* 幅いっぱいに */
     box-sizing: border-box;
   }
