@@ -522,12 +522,17 @@
     top: auto;
     max-width: 100%;
     width: 100%;
+    overflow: visible;
+    padding: 0;
+    margin: 0;
   }
 
   /* ▼ フルブリード用ラッパー（記事詳細の .mobileEdge と同じ） */
   .mobileEdge {
-    margin-left: calc(50% - 50vw);
-    margin-right: calc(50% - 50vw);
+    width: 100vw;
+    box-sizing: border-box;
+    margin-left: 50%;
+    transform: translateX(-50%);
     padding-left: max(12px, env(safe-area-inset-left));
     padding-right: max(12px, env(safe-area-inset-right));
   }
