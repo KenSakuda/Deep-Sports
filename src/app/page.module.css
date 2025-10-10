@@ -35,6 +35,10 @@
   gap: 12px;
 }
 
+.buttonLink {
+  margin: 0 auto;
+}
+
 /* タブレット以下は従来どおり縦積み */
 @media (max-width: 1024px) {
   .container {
