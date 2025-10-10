@@ -454,11 +454,13 @@
   padding: 0 20px;
   gap: 12px;
 }
+
 .mainContent {
   flex: 3;
   max-width: 750px;
   width: 100%;
 }
+
 .sidebar {
   flex: 1;
   max-width: 370px;
@@ -466,21 +468,25 @@
   display: flex;
   position: sticky;
   flex-direction: column;
-  gap: 12px;
+  gap: 8px;
   top: 84px;
   z-index: 2;
 }
+
 .cards {
   display: grid;
-  grid-template-columns: repeat(3 1fr);
+  /* ← カンマ抜けを修正 */
+  grid-template-columns: repeat(3, 1fr);
   gap: 12px;
 }
+
 .buttonLink {
   margin-top: 20px;
   display: flex;
   justify-content: center;
 }
-/* 既存のブレークポイント（PC/タブレットの挙動は据え置き） */
+
+/* タブレット以下 */
 @media (max-width: 1024px) {
   .container {
     flex-direction: column;
@@ -498,6 +504,8 @@
     gap: 12px;
   }
 }
+
+/* スマホ（狭幅） */
 @media (max-width: 600px) {
   .cards {
     grid-template-columns: 1fr;
@@ -510,47 +518,52 @@
   }
 }
 
+/* スマホ最適化：sidebar の左右スキマを解消 */
 @media (max-width: 768px) {
-  /* 余白ゼロのフルブリード */
   .container {
-    max-width: none;
-    width: 100vw;
+    /* 余白ゼロで横幅いっぱいにしつつ、読みやすい最小パディングだけ残す */
+    max-width: 100%;
+    width: 100%;
     margin: 16px 0 0 0;
     flex-direction: column;
     gap: 6px;
-    padding-left: 0;
-    padding-right: 0;
+    padding-left: 12px;
+    padding-right: 12px;
   }
-  .mainContent,
-  .sidebar {
+
+  .mainContent {
     max-width: 100%;
     width: 100%;
     padding: 0;
   }
 
-  /* .sidebar {
-    max-width: none;
-    padding-left: max(6px, env(safe-area-inset-left));
-    padding-right: max(6px, env(safe-area-inset-right));
-    margin-left: calc(50% - 50vw);
-    margin-right: calc(50% - 50vw);
-    width: 768px;
-    box-sizing: border-box;
-  } */
+  .sidebar {
+    /* ↓ ここが肝：フルブリード用の幅・マージンを撤廃して100%に */
+    max-width: 100%;
+    width: 100%;
+    margin: 0;
+    padding-left: 0;
+    padding-right: 0;
 
-  /* 記事カード：1カラム + 区切り線で“ニュースサイト感” */
-  .cards {
-    grid-template-columns: 1fr !important; /* スマホは1列固定 */
-    gap: 0; /* 余白なしで詰める */
+    /* スマホでは sticky を解除して“詰まり感”を防止 */
+    position: static;
+    top: auto;
   }
-  /* CardのCSS Moduleを壊さず :global で上書き */
+
+  /* カードは1列で区切り線のニュースサイト風 */
+  .cards {
+    grid-template-columns: 1fr !important;
+    gap: 0;
+  }
+
+  /* Card の内側だけ上書き（:global で安全に） */
   .cards :global(.card) {
     border-radius: 0;
     box-shadow: none;
-    border-bottom: 1px solid #e9e9e9; /* 区切り線 */
+    border-bottom: 1px solid #e9e9e9;
     background: #fff;
   }
-  /* 画像は角丸なしで端まで */
+
   .cards :global(.imageWrapper),
   .cards :global(.image) {
     border-radius: 0 !important;
@@ -558,7 +571,7 @@
     height: auto !important;
     display: block;
   }
-  /* タイトル：詰め気味に、読みやすく太め */
+
   .cards :global(.title) {
     font-weight: 700;
     font-size: 19px;
@@ -567,16 +580,17 @@
     color: #111;
     margin: 0 0 6px;
   }
-  /* メタは小さめ＆薄め */
+
   .cards :global(.meta) {
     font-size: 12px;
     color: #777;
     gap: 12px;
   }
-  /* テキストブロックの左右パディングを最小限に */
+
   .cards :global(.textContent) {
     padding: 12px 14px 16px;
   }
+
   .buttonLink {
     max-width: 80%;
     margin: 16px auto;
