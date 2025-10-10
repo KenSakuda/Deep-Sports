@@ -1,468 +1,27 @@
-/* .container {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 1300px;
-  margin: 0 auto;
-  padding: 40px 20px;
-  gap: 40px;
-}
-
-.mainContent {
-  flex: 3;
-  max-width: 850px;
-  min-width: 650px;
-  margin-top: 530px;
-}
-
-.sidebar {
-  flex: 1;
-  max-width: 370px;
-  min-width: 290px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  margin-top: 530px;
-}
-
-.sectionTitle {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-.cards {
-  margin-top: 20px;
-}
-
-.buttonLink {
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-}
-
-.sliderWrapper {
-  width: 100%;
-  max-width: 1250px;
-  height: 500px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px 0;
-  position: absolute;
-  z-index: 1;
-  margin: 20px auto;
-  left: 0;
-  right: 0;
-}
-
-@media (max-width: 1024px) {
-  .container {
-    flex-direction: column;
-    align-items: stretch;
-    width: 100%;
-    max-width: 100%;
-    padding: 20px;
-  }
-
-  .mainContent {
-    flex: none;
-    width: 100%;
-    max-width: 100%;
-    margin-top: 530px;
-    margin: 0 auto;
-    padding: 0 10px;
-  }
-
-  .cards {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-
-  .sidebar {
-    flex: none;
-    width: 100%;
-    max-width: 100%;
-    margin: 0 auto;
-  }
-
-  .sliderWrapper {
-    position: absolute;
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    padding: 0px 10px;
-    margin: 0 auto;
-  }
-}
-
-@media (max-width: 600px) {
-  .container {
-    width: 100%;
-    align-items: stretch;
-  }
-
-  .mainContent .sidebar {
-    width: 100%;
-    max-width: 100%;
-  }
-
-  .cards {
-    grid-template-columns: repeat(1, 1fr);
-  }
-} */
-
-/* .container {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 1350px;
-  margin: 0 auto;
-  padding: 40px 20px;
-  gap: 30px;
-}
-
-.mainContent {
-  flex: 3;
-  max-width: 900px;
-  min-width: 650px;
-  margin-top: 530px;
-}
-
-.sidebar {
-  flex: 1;
-  max-width: 370px;
-  min-width: 290px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  margin-top: 530px;
-}
-
-.sectionTitle {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-.cards {
-  margin-top: 20px;
-}
-
-.buttonLink {
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-}
-
-.sliderWrapper {
-  width: 100%;
-  max-width: 1250px;
-  height: 500px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px 0;
-  position: absolute;
-  z-index: 1;
-  margin: 20px auto;
-  left: 0;
-  right: 0;
-}
-
-@media (max-width: 1024px) {
-  .container {
-    flex-direction: column;
-    padding: 20px;
-  }
-
-  .mainContent {
-    margin-top: 20px;
-  }
-  .sidebar {
-    margin-top: 20px;
-  }
-
-  .cards {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-
-  .sliderWrapper {
-    position: absolute;
-    margin: 0 auto;
-    padding: 0;
-    height: auto;
-  }
-}
-
-@media (max-width: 600px) {
-  .mainContent {
-    margin-top: 20px;
-  }
-
-  .cards {
-    grid-template-columns: 1fr;
-  }
-
-  .sectionTitle {
-    font-size: 20px;
-  }
-} */
-
-/* .container {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  padding: 40px 20px;
-  max-width: 1300px;
-  margin: 0 auto;
-}
-
-.mainContent {
-  flex: 3;
-  max-width: 850px;
-  min-width: 0;
-}
-
-.sidebar {
-  flex: 1;
-  max-width: 300px;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.sectionTitle {
-  font-size: 24px;
-  font-weight: bold;
-  border-left: 5px solid var(--color-main);
-  padding-left: 12px;
-  margin-bottom: 24px;
-}
-
-.cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 24px;
-}
-
-.buttonLink {
-  margin-top: 30px;
-  display: flex;
-  justify-content: center;
-}
-
-@media (max-width: 1024px) {
-  .container {
-    flex-direction: column;
-    gap: 40px;
-    padding: 20px;
-  }
-
-  .mainContent {
-    max-width: 100%;
-  }
-
-  .cards {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .sidebar {
-    max-width: 100%;
-  }
-}
-
-@media (max-width: 600px) {
-  .cards {
-    grid-template-columns: 1fr;
-  }
-
-  .sectionTitle {
-    font-size: 20px;
-  }
-} */
-
-/* .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  max-width: 1200px;
-  width: 100%;
-  margin: 40px auto;
-  padding: 0 20px;
-  gap: 20px;
-}
-
-.heroWrap {
-  width: 100%;
-  margin: 0;
-}
-
-.mainContent {
-  flex: 3;
-  max-width: 750px;
-  width: 100%;
-}
-
-.sidebar {
-  flex: 1;
-  max-width: 370px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.cards {
-  display: contents;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-}
-
-.buttonLink {
-  margin-top: 40px;
-  display: flex;
-  justify-content: center;
-}
-
-@media (max-width: 1024px) {
-  .container {
-    flex-direction: column;
-    align-items: center;
-    gap: 40px;
-    padding: 0 20px;
-  }
-
-  .mainContent,
-  .sidebar {
-    width: 100%;
-    max-width: 100%;
-    min-width: auto;
-    padding: 0 10px;
-  }
-
-  .cards {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-  }
-}
-
-@media (max-width: 600px) {
-  .cards {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  .buttonLink {
-    margin-top: 24px;
-  }
-
-  .sidebar {
-    max-width: 100%;
-    width: 100%;
-    padding: 0;
-  }
-} */
-
-/* .container {
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  max-width: 1200px;
-  width: 100%;
-  margin: 40px auto;
-  padding: 0 20px;
-  gap: 12px;
-}
-
-.mainContent {
-  flex: 3;
-  max-width: 750px;
-  width: 100%;
-}
-
-.sidebar {
-  flex: 1;
-  max-width: 370px;
-  width: 100%;
-  display: flex;
-  position: sticky;
-  flex-direction: column;
-  gap: 12px;
-  top: 84px;
-  z-index: 2;
-}
-
-.cards {
-  display: grid;
-  grid-template-columns: repeat(3 1fr);
-  gap: 12px;
-}
-
-.buttonLink {
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-}
-
-@media (max-width: 1024px) {
-  .container {
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .mainContent,
-  .sidebar {
-    width: 100%;
-    max-width: 100%;
-    padding: 0 10px;
-  }
-
-  .cards {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-  }
-}
-
-@media (max-width: 600px) {
-  .cards {
-    grid-template-columns: 1fr;
-  }
-
-  .buttonLink {
-    margin-top: 20px;
-  }
-
-  .sidebar {
-    padding: 0;
-  }
-} */
-
 .container {
   position: relative;
   display: flex;
-  justify-content: space-between;
+  /* ← 余白を中央ギャップにしない */
+  justify-content: flex-start; /* もしくは center でもOK */
   align-items: flex-start;
   max-width: 1200px;
   width: 100%;
   margin: 40px auto;
   padding: 0 20px;
-  gap: 12px;
+  gap: 12px; /* 間隔は gap で制御 */
 }
 
 .mainContent {
-  flex: 3;
+  /* 幅が縮まないように基準幅を与える */
+  flex: 0 1 750px; /* basis=750px, 必要なら縮むが最小はこの幅を保ちやすい */
   max-width: 750px;
   width: 100%;
+  min-width: 700px; /* 任意：もう少し堅く守りたい場合 */
 }
 
 .sidebar {
-  flex: 1;
+  /* サイドは固定基準幅 */
+  flex: 0 0 370px; /* basis=370px, 縮ませない */
   max-width: 370px;
   width: 100%;
   display: flex;
@@ -473,20 +32,13 @@
   z-index: 2;
 }
 
-/* ★ カンマ抜け修正 */
 .cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr); /* ←カンマ入り */
   gap: 12px;
 }
 
-.buttonLink {
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-}
-
-/* タブレット */
+/* タブレット以下は従来どおり縦積み */
 @media (max-width: 1024px) {
   .container {
     flex-direction: column;
@@ -496,8 +48,10 @@
   }
   .mainContent,
   .sidebar {
+    flex: none; /* 幅の固定を解除 */
     width: 100%;
     max-width: 100%;
+    min-width: 0;
   }
   .cards {
     grid-template-columns: repeat(2, 1fr);

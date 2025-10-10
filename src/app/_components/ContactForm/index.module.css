@@ -14,17 +14,15 @@
 .item {
   display: flex;
   flex-direction: column;
-  flex: 1;
-  padding: 8px 0;
+  flex: 1 1 0;
   padding: 8px 0;
 }
 
 .horizontal {
   display: flex;
   justify-content: flex-start;
-  align-items: center;
+  align-items: center; /* ← PC時は中央揃えでOK（縦方向の話） */
   width: 100%;
-  gap: 24px;
   gap: 24px;
 }
 
@@ -32,20 +30,17 @@
   font-size: 14px;
 }
 
-.textfield {
-  border: 1px solid var(--color-border);
-  padding: 8px;
-  border-radius: 4px;
-  line-height: 1.5;
-  width: 100%;
-}
-
+.textfield,
 .textarea {
   border: 1px solid var(--color-border);
   padding: 8px;
   border-radius: 4px;
   line-height: 1.5;
   width: 100%;
+  box-sizing: border-box; /* 入力枠の幅計算を安定化 */
+}
+
+.textarea {
   min-height: 160px;
 }
 
@@ -88,6 +83,7 @@
   margin-bottom: 8px;
 }
 
+/* === スマホ対応 === */
 @media (max-width: 640px) {
   .success {
     text-align: left;
@@ -95,12 +91,16 @@
 
   .horizontal {
     flex-direction: column;
+    align-items: stretch; /* ★ これがポイント：横幅いっぱいに伸ばす */
     gap: 8px;
+    width: 100%;
   }
 
   .item {
+    width: 100%; /* ★ 子要素を100%に */
     padding: 10px 0;
   }
+
   .textarea {
     min-height: 180px;
   }
