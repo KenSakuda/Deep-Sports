@@ -526,7 +526,7 @@
     position: static; /* sticky 解除で詰まり感を防止 */
     top: auto;
     width: 100%;
-    max-width: 100%;
+    max-width: none;
     margin-left: calc(50% - 50vw);
     margin-right: calc(50% - 50vw);
     padding-left: max(12px, env(safe-area-inset-left));
@@ -544,7 +544,7 @@
   .sidebar {
     position: static;
     width: 100%;
-    max-width: 100%;
+    max-width: none;
     margin: 0; /* 中間幅では通常の 12px パディング運用に戻す */
     padding-left: 0;
     padding-right: 0;
