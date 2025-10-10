@@ -2,7 +2,7 @@
   position: relative;
   display: flex;
   /* ← 余白を中央ギャップにしない */
-  justify-content: flex-start; /* もしくは center でもOK */
+  justify-content: center;
   align-items: flex-start;
   max-width: 1200px;
   width: 100%;
@@ -13,10 +13,8 @@
 
 .mainContent {
   /* 幅が縮まないように基準幅を与える */
-  flex: 0 1 750px; /* basis=750px, 必要なら縮むが最小はこの幅を保ちやすい */
+  flex: 0 0 750px; /* 基準幅を固定 */
   max-width: 750px;
-  width: 100%;
-  min-width: 700px; /* 任意：もう少し堅く守りたい場合 */
 }
 
 .sidebar {
