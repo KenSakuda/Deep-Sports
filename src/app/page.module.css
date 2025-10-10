@@ -532,7 +532,10 @@
   .sidebar {
     max-width: none;
     padding: 0;
-    width: 768px;
+    width: 100%;
+    max-width: 768px;
+    gap: 0px;
+    top: 4px;
     box-sizing: border-box;
   }
 
