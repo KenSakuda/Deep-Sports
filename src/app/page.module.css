@@ -454,11 +454,13 @@
   padding: 0 20px;
   gap: 12px;
 }
+
 .mainContent {
   flex: 3;
   max-width: 750px;
   width: 100%;
 }
+
 .sidebar {
   flex: 1;
   max-width: 370px;
@@ -470,91 +472,86 @@
   top: 84px;
   z-index: 2;
 }
+
+/* ★ カンマ抜け修正 */
 .cards {
   display: grid;
-  grid-template-columns: repeat(3 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 12px;
 }
+
 .buttonLink {
   margin-top: 20px;
   display: flex;
   justify-content: center;
 }
 
+/* タブレット */
 @media (max-width: 1024px) {
   .container {
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
     gap: 12px;
+    padding: 20px 12px;
   }
-
   .mainContent,
   .sidebar {
     width: 100%;
     max-width: 100%;
-    padding: 0 10px;
   }
-
   .cards {
     grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
   }
 }
 
-@media (max-width: 600px) {
+/* スマホ：sidebar を“横幅いっぱい”に（記事詳細の手法と同じ） */
+@media (max-width: 640px) {
+  /* 親の左右パディングを0にして真に端まで使う */
+  .container {
+    padding-left: 0;
+    padding-right: 0;
+    margin-top: 16px;
+  }
+
   .cards {
     grid-template-columns: 1fr;
   }
-  .buttonLink {
-    margin-top: 20px;
-  }
+
   .sidebar {
-    padding: 0;
+    position: static; /* sticky解除で詰まり感回避 */
+    top: auto;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  /* ▼ フルブリード用ラッパー（記事詳細の .mobileEdge と同じ） */
+  .mobileEdge {
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    padding-left: max(12px, env(safe-area-inset-left));
+    padding-right: max(12px, env(safe-area-inset-right));
   }
 }
 
+/* スマホ〜タブレット共通のカード見た目（任意） */
 @media (max-width: 768px) {
-  /* 余白ゼロのフルブリード */
-  .container {
-    max-width: none;
-    width: 100vw;
-    margin: 16px 0 0 0;
-    flex-direction: column;
-    gap: 6px;
-    padding-left: 0;
-    padding-right: 0;
-  }
-  .mainContent {
-    max-width: 100%;
-    width: 100%;
-    padding: 0;
-  }
-  .sidebar {
-    padding: 0;
-    width: 100%;
-    max-width: 768px;
-    gap: 0px;
-    top: 4px;
-    box-sizing: border-box;
-  }
-
   .cards {
-    grid-template-columns: 1fr !important; /* スマホは1列固定 */
-    gap: 0; /* 余白なしで詰める */
-  } /* CardのCSS Moduleを壊さず :global で上書き */
+    grid-template-columns: 1fr !important;
+    gap: 0;
+  }
   .cards :global(.card) {
     border-radius: 0;
     box-shadow: none;
-    border-bottom: 1px solid #e9e9e9; /* 区切り線 */
+    border-bottom: 1px solid #e9e9e9;
     background: #fff;
-  } /* 画像は角丸なしで端まで */
+  }
   .cards :global(.imageWrapper),
   .cards :global(.image) {
     border-radius: 0 !important;
     width: 100% !important;
     height: auto !important;
     display: block;
-  } /* タイトル：詰め気味に、読みやすく太め */
+  }
   .cards :global(.title) {
     font-weight: 700;
     font-size: 19px;
@@ -562,12 +559,12 @@
     letter-spacing: 0.01em;
     color: #111;
     margin: 0 0 6px;
-  } /* メタは小さめ＆薄め */
+  }
   .cards :global(.meta) {
     font-size: 12px;
     color: #777;
     gap: 12px;
-  } /* テキストブロックの左右パディングを最小限に */
+  }
   .cards :global(.textContent) {
     padding: 12px 14px 16px;
   }
